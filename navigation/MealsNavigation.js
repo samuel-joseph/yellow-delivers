@@ -24,7 +24,7 @@ const defaultStackNavOptions = {
   headerBackTitleStyle: {
     fontFamily: "open-sans",
   },
-  headerTintColor: Platform.OS === "android" ? "white" : Colors.primaryColor,
+  headerTintColor: Platform.OS === "android" ? "black" : Colors.primaryColor,
   headerTitle: "A Screen",
 };
 
@@ -33,7 +33,7 @@ const MealsNavigator = createStackNavigator(
     Categories: {
       screen: CategoriesScreen,
       navigationOptions: {
-        headerTitle: "Meal Categories!!!",
+        headerTitle: "Yellow Delivers",
       },
     },
     CategoryMeals: {
@@ -68,9 +68,9 @@ const tabScreenConfig = {
       tabBarColor: Colors.primaryColor,
       tabBarLabel:
         Platform.OS === "android" ? (
-          <Text style={{ fontFamily: "open-sans-bold" }}>Meals</Text>
+          <Text style={{ fontFamily: "open-sans-bold" }}>Store</Text>
         ) : (
-          "Meals"
+          "Store"
         ),
     },
   },
@@ -126,7 +126,7 @@ const MainNavigator = createDrawerNavigator(
     MealsFavs: {
       screen: MealsFavTabNavigator,
       navigationOptions: {
-        drawerLabel: "Meals",
+        drawerLabel: "Store",
       },
     },
     Filters: FiltersNavigator,

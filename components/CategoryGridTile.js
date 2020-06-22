@@ -4,6 +4,7 @@ import {
   View,
   Text,
   StyleSheet,
+  Image,
   Platform,
   TouchableNativeFeedback,
 } from "react-native";
@@ -23,9 +24,10 @@ const CategoryGridTile = (props) => {
             ...{ backgroundColor: props.color },
           }}
         >
-          <Text style={styles.title} numberOfLines={2}>
+          <Image style={styles.logo} source={{ uri: props.color }} />
+          {/* <Text style={styles.title} numberOfLines={2}>
             {props.title}
-          </Text>
+          </Text> */}
         </View>
       </TouchableCmp>
     </View>
@@ -33,6 +35,10 @@ const CategoryGridTile = (props) => {
 };
 
 const styles = StyleSheet.create({
+  logo: {
+    height: "100%",
+    width: "100%",
+  },
   gridItem: {
     flex: 1,
     margin: 15,
@@ -47,7 +53,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     borderRadius: 10,
-    shadowColor: "black",
+    shadowColor: "#ff00ff00",
     shadowOpacity: 0.26,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 10,
