@@ -1,7 +1,15 @@
 import React from "react";
-import { ScrollView, Image, View, Text, StyleSheet } from "react-native";
+import {
+  ScrollView,
+  Image,
+  View,
+  Text,
+  StyleSheet,
+  Button,
+} from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import { useSelector, useDispatch } from "react-redux";
+import email from "react-native-email";
 
 import HeaderButton from "../components/HeaderButton";
 import DefaultText from "../components/DefaultText";
@@ -55,6 +63,21 @@ const MealDetailScreen = (props) => {
       {selectedMeal.steps.map((step) => (
         <ListItem key={step}>{step}</ListItem>
       ))}
+      <View>
+        <Button
+          title="test"
+          onPress={() => {
+            const to = ["pinangayjoel@gmail.com"]; // string or array of email addresses
+            email(to, {
+              // Optional additional arguments
+              cc: ["pinangayjoel@gmail.com"], // string or array of email addresses
+              bcc: "pinangayjoel@gmail.com", // string or array of email addresses
+              subject: "Yellow Delivers order",
+              body: `${selectedMeal.ingredients}`,
+            }).catch(console.error);
+          }}
+        />
+      </View>
     </ScrollView>
   );
 };
